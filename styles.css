@@ -11,6 +11,7 @@
   color: #e32249;
   padding: 30px;
   text-align: center;
+  font-size: 50px;
 }
 
 #timer, #footer {
@@ -31,5 +32,9 @@
 }
 
 .score {
+  margin: 10px;
+}
+
+.btn-success {
   margin: 10px;
 }
