@@ -31,10 +31,6 @@
   padding: 20px;
 }
 
-.score {
-  margin: 10px;
-}
-
-.btn-success {
+.score, .btn-success {
   margin: 10px;
 }
