@@ -1,0 +1,31 @@
+#body-game {
+  font-family: 'Raleway', sans-serif;
+  background-color: #f0cf85;
+}
+
+.card {
+  font-family: 'Roboto Mono', monospace;
+}
+
+.title {
+  color: #e32249;
+  padding: 30px;
+  text-align: center;
+}
+
+#timer {
+  background-color: #cf455c;
+  color: #fff;
+}
+
+#time {
+  font-size: 20px;
+}
+
+.game-questions {
+  font-size: 35px;
+}
+
+.input {
+  padding: 20px;
+}
