@@ -10,13 +10,13 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto+Mono&display=swap" rel="stylesheet">
-  <title>Hello, world!</title>
+  <title>Math Game</title>
 </head>
 
 <body id="body-game">
   <div class="container container-game">
     <div class="container">
-      <h2 class="title">Math Game</h2>
+      <h2 class="title">+ - MATH GAME &times; &divide;</h2>
       <div class="card text-center">
         <div class="card-header" id="timer">
           <p><span id="time">10</span><br> Secs remaining</p>
@@ -30,19 +30,19 @@
           </div>
 
           <div class="btn-group" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-secondary">Left</button>
-            <button type="button" class="btn btn-secondary">Middle</button>
-            <button type="button" class="btn btn-secondary">Middle</button>
-            <button type="button" class="btn btn-secondary">Right</button>
+            <button type="button" class="btn btn-secondary btn-operator" id="add">+</button>
+            <button type="button" class="btn btn-secondary btn-operator" id="sub">-</button>
+            <button type="button" class="btn btn-secondary btn-operator" id="mult">&times;</button>
+            <button type="button" class="btn btn-secondary btn-operator" id="div">&divide;</button>
           </div>
         </div>
-        <div class="card-footer text-muted">
+        <div class="card-footer" id="footer">
           <div class="row score-section">
-            <div class="current-score-section">
-              <p>Current Score: <span id="current-score">10</span></p>
+            <div class="col-lg-6 current-score-section">
+              <p class="score current-score-title">Current Score: <span id="current-score">10</span></p>
             </div>
-            <div class="hight-score-section">
-              <p>Hight Score: <span id="hight-score">8</span></p>
+            <div class="col-lg-6 hight-score-section">
+              <p class="score current-score-title">Hight Score: <span id="hight-score">8</span></p>
             </div>
 
           </div>

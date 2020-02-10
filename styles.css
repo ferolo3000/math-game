@@ -13,7 +13,7 @@
   text-align: center;
 }
 
-#timer {
+#timer, #footer {
   background-color: #cf455c;
   color: #fff;
 }
@@ -28,4 +28,8 @@
 
 .input {
   padding: 20px;
+}
+
+.score {
+  margin: 10px;
 }
