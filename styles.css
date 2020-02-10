@@ -9,9 +9,9 @@
 
 .title {
   color: #e32249;
-  padding: 30px;
+  padding: 20px;
   text-align: center;
-  font-size: 50px;
+  font-size: 40px;
 }
 
 #timer, #footer {
@@ -21,6 +21,11 @@
 
 #time {
   font-size: 20px;
+}
+
+#method {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .game-questions {

@@ -2,21 +2,24 @@ $(document).ready( function () {
 var playerAnswer;
 var gameAnswer;
 var time;
-var counter = 10;
+var counter = 5;
 var score = 0;
+var oldHighScore = 0;
 
   // timer function
   var timer = function () {
     if (!time) {
       if (counter === 0) {
-        bonusTime(10);
-        updateScore(-score);
+        bonusTime(5);
+        getScore(-score);
       }
       time = setInterval(function () {
         bonusTime(-1);
         if (counter === 0) {
-          clearInterval(interval);
+          clearInterval(time);
           time = undefined;
+          alert("Time Over");
+          checkScore();
         }
       }, 1000);
     }
@@ -27,6 +30,13 @@ var score = 0;
     counter += bonus;
     $('#time').text(counter);
   };
+
+  // player score
+var getScore = function (bonus) {
+  score += bonus;
+  $('#current-score').text(score);
+};
+
 
   // method selected
     $(".btn-operator").click(function() {
@@ -79,23 +89,35 @@ var checkAnswer = function(key) {
         if (playerAnswer == gameAnswer) {
           generator();
           bonusTime(+1);
+          getScore(+1);
         }
       }
     }
   };
 
-// validate correct answer
+var checkScore = function () {
+  var currentScore = parseInt($("#current-score").text());
+  var highScore;
+  if (currentScore > oldHighScore) {
+    highScore = $("#high-score").text(currentScore);
+  } else {
+    highScore = $("#high-score").text(oldHighScore);
+  }
+  oldHighScore = highScore;
+};
+
+// player input
 $("input").keypress(function(key) {
   timer();
   checkAnswer(key);
   });
 
-
+// start game
 $("#play").on("click", function () {
   timer();
   generator();
-
 });
 
+generator();
 
 });
