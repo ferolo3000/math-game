@@ -19,7 +19,7 @@
       <h2 class="title">+ - MATH GAME &times; &divide;</h2>
       <div class="card text-center">
         <div class="card-header" id="timer">
-          <p><span id="time">10</span><br> Secs remaining</p>
+          <p><span id="time">10</span><br>Secs remaining</p>
         </div>
         <div class="card-body game-content">
           <div class="game-questions" id="questions">
@@ -36,6 +36,21 @@
             <button type="button" class="btn btn-secondary btn-operator" id="sub">-</button>
             <button type="button" class="btn btn-secondary btn-operator" id="mult">&times;</button>
             <button type="button" class="btn btn-secondary btn-operator" id="div">&divide;</button>
+          </div>
+          <div class="text">
+            <p>Select range:</p>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="range form-check-input" type="radio" name="rangeOptions" id="less10" value="10">
+            <label class="form-check-label">≤10</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="range form-check-input" type="radio" name="rangeOptions" id="less20" value="20">
+            <label class="form-check-label">≤20</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="range form-check-input" type="radio" name="rangeOptions" id="less30" value="30">
+            <label class="form-check-label">≤30</label>
           </div>
           <div class="start">
             <button type="button" class="btn btn-success" id="play">Play</button>

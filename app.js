@@ -2,7 +2,7 @@ $(document).ready( function () {
 var playerAnswer;
 var gameAnswer;
 var time;
-var counter = 5;
+var counter = 10;
 var score = 0;
 var array = [];
 
@@ -10,7 +10,7 @@ var array = [];
   var timer = function () {
     if (!time) {
       if (counter === 0) {
-        bonusTime(5);
+        bonusTime(10);
         getScore(-score);
       }
       time = setInterval(function () {
@@ -56,10 +56,16 @@ var getScore = function (bonus) {
 // generate random questions
 var generator = function () {
 
+  var maxRange = $("input[name='rangeOptions']:checked").val();
+  var minRange = 1;
+
   $('#playerAnswer').val('');
 
-  var num1 = 1 + Math.round(9 * Math.random());
-	var num2 = 1 + Math.round(9 * Math.random());
+  var num1 = Math.floor(Math.random() * (maxRange - minRange + 1) + minRange);
+  var num2 = Math.floor(Math.random() * (maxRange - minRange + 1) + minRange);
+
+  // var num1 = 1 + Math.round(9 * Math.random());
+	// var num2 = 1 + Math.round(9 * Math.random());
   var method = $("#method").text();
 
   $('#num1').html(num1);
@@ -68,20 +74,44 @@ var generator = function () {
   if (method === "+") {
       gameAnswer = num1 + num2;
 
-    } else if (method === "-" && num2 < num1) {
-      gameAnswer = num1 - num2;
-
-    } else if (method === "-" && num2 > num1) {
-      gameAnswer = num2 - num1;
+    } else if (method === "-") {
+      if (num2 > num1) {
+        $('#num1').html(num2);
+        $('#num2').html(num1);
+        gameAnswer = num2 - num1;
+      } else {
+        gameAnswer = num1 - num2;
+      }
 
     } else if (method === "x") {
       gameAnswer = num1 * num2;
 
-    } else if (method === "÷" && num2 < num1) {
-      gameAnswer = num1 / num2;
+    } else if (method === "÷") {
+      if (num1 > num2) {
+        if (num1 % num2 != 0) {
+          num2 = 1;
+          $('#num1').html(num1);
+          $('#num2').html(num2);
+          gameAnswer = num1 / num2;
+        } else {
+          gameAnswer = num1 / num2;
+        }
+      } else if (num2 > num1) {
+        if (num2 % num1 != 0) {
+          num1 = 1;
 
-    } else if (method === "÷" && num2 > num1) {
-      gameAnswer = num2 / num1;
+          $('#num1').html(num2);
+          $('#num2').html(num1);
+
+          gameAnswer = num2 / num1;
+        } else {
+          $('#num1').html(num2);
+          $('#num2').html(num1);
+          gameAnswer = num2 / num1;
+        }
+      } else {
+        gameAnswer = num1 / num2;
+      }
     }
 };
 

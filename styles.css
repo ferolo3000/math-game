@@ -9,9 +9,10 @@
 
 .title {
   color: #e32249;
-  padding: 20px;
+  padding: 10px;
   text-align: center;
-  font-size: 40px;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 #timer, #footer {
@@ -29,7 +30,7 @@
 }
 
 .card {
-  width: 70%;
+  width: 60%;
   text-align: center;
   margin: 0 auto;
   float: none;
@@ -41,9 +42,13 @@
 }
 
 .input {
-  padding: 20px;
+  padding: 5px;
 }
 
 .score, .btn-success {
   margin: 10px;
+}
+
+.btn-operator {
+  margin-bottom: 10px;
 }
