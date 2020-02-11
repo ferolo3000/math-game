@@ -28,6 +28,14 @@
   margin-right: 10px;
 }
 
+.card {
+  width: 70%;
+  text-align: center;
+  margin: 0 auto;
+  float: none;
+  margin-bottom: 10px;
+}
+
 .game-questions {
   font-size: 35px;
 }

@@ -4,7 +4,7 @@ var gameAnswer;
 var time;
 var counter = 5;
 var score = 0;
-var oldHighScore = 0;
+var array = [];
 
   // timer function
   var timer = function () {
@@ -71,11 +71,17 @@ var generator = function () {
     } else if (method === "-" && num2 < num1) {
       gameAnswer = num1 - num2;
 
+    } else if (method === "-" && num2 > num1) {
+      gameAnswer = num2 - num1;
+
     } else if (method === "x") {
       gameAnswer = num1 * num2;
 
     } else if (method === "÷" && num2 < num1) {
       gameAnswer = num1 / num2;
+
+    } else if (method === "÷" && num2 > num1) {
+      gameAnswer = num2 / num1;
     }
 };
 
@@ -95,16 +101,14 @@ var checkAnswer = function(key) {
     }
   };
 
-var checkScore = function () {
+function checkScore() {
+  $('#current-score').val('');
   var currentScore = parseInt($("#current-score").text());
-  var highScore;
-  if (currentScore > oldHighScore) {
-    highScore = $("#high-score").text(currentScore);
-  } else {
-    highScore = $("#high-score").text(oldHighScore);
-  }
-  oldHighScore = highScore;
-};
+	array.push(currentScore);
+
+  var maxScore = Math.max.apply(null, array);
+  $("#high-score").text(maxScore);
+}
 
 // player input
 $("input").keypress(function(key) {
