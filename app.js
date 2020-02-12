@@ -20,6 +20,7 @@ var array = [];
           time = undefined;
           alert("Time Over");
           checkScore();
+          enableOperator();
         }
       }, 1000);
     }
@@ -64,8 +65,6 @@ var generator = function () {
   var num1 = Math.floor(Math.random() * (maxRange - minRange + 1) + minRange);
   var num2 = Math.floor(Math.random() * (maxRange - minRange + 1) + minRange);
 
-  // var num1 = 1 + Math.round(9 * Math.random());
-	// var num2 = 1 + Math.round(9 * Math.random());
   var method = $("#method").text();
 
   $('#num1').html(num1);
@@ -89,7 +88,10 @@ var generator = function () {
     } else if (method === "÷") {
       if (num1 > num2) {
         if (num1 % num2 != 0) {
-          num2 = 1;
+
+          var num3 = Math.floor(num1 / num2);
+          num1 = num2 * num3;
+
           $('#num1').html(num1);
           $('#num2').html(num2);
           gameAnswer = num1 / num2;
@@ -98,7 +100,9 @@ var generator = function () {
         }
       } else if (num2 > num1) {
         if (num2 % num1 != 0) {
-          num1 = 1;
+
+          var num4 = Math.floor(num2 / num1);
+          num2 = num1 * num4;
 
           $('#num1').html(num2);
           $('#num2').html(num1);
@@ -140,6 +144,14 @@ function checkScore() {
   $("#high-score").text(maxScore);
 }
 
+function disableOperator() {
+  $(".btn-operator").attr("disabled", true);
+}
+
+function enableOperator() {
+  $(".btn-operator").attr("disabled", false);
+}
+
 // player input
 $("input").keypress(function(key) {
   timer();
@@ -150,6 +162,7 @@ $("input").keypress(function(key) {
 $("#play").on("click", function () {
   timer();
   generator();
+  disableOperator();
 });
 
 generator();
