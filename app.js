@@ -64,6 +64,7 @@ var generator = function () {
 
   var num1 = Math.floor(Math.random() * (maxRange - minRange + 1) + minRange);
   var num2 = Math.floor(Math.random() * (maxRange - minRange + 1) + minRange);
+  var num3 = num1 * num2;
 
   var method = $("#method").text();
 
@@ -89,25 +90,19 @@ var generator = function () {
       if (num1 > num2) {
         if (num1 % num2 != 0) {
 
-          var num3 = Math.floor(num1 / num2);
-          num1 = num2 * num3;
-
-          $('#num1').html(num1);
+          $('#num1').html(num3);
           $('#num2').html(num2);
-          gameAnswer = num1 / num2;
+          gameAnswer = num3 / num2;
         } else {
           gameAnswer = num1 / num2;
         }
       } else if (num2 > num1) {
         if (num2 % num1 != 0) {
 
-          var num4 = Math.floor(num2 / num1);
-          num2 = num1 * num4;
-
-          $('#num1').html(num2);
+          $('#num1').html(num3);
           $('#num2').html(num1);
 
-          gameAnswer = num2 / num1;
+          gameAnswer = num3 / num1;
         } else {
           $('#num1').html(num2);
           $('#num2').html(num1);
